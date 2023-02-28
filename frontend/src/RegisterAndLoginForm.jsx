@@ -7,6 +7,7 @@ export default function RegisterAndLoginForm() {
 	const [password, setPassword] = useState("");
 	const [isLoginOrRegister, setIsLoginOrRegister] = useState("login");
 	const { setUsername: setLoggedInUsername, setId } = useContext(UserContext);
+
 	async function handleSubmit(ev) {
 		ev.preventDefault();
 		const url = isLoginOrRegister === "register" ? "register" : "login";
@@ -14,6 +15,7 @@ export default function RegisterAndLoginForm() {
 		setLoggedInUsername(username);
 		setId(data.id);
 	}
+
 	return (
 		<div className="bg-blue-50 h-screen flex items-center">
 			<form className="w-64 mx-auto mb-12" onSubmit={handleSubmit}>
